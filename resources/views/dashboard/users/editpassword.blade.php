@@ -7,10 +7,10 @@
 				<div class="row breadcrumbs-top">
 					<div class="breadcrumb-wrapper col-12">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="">main </a></li>
+							<li class="breadcrumb-item"><a href="">Main </a></li>
 							<li class="breadcrumb-item"><a href="{{route('admin.users')}}">
-									admins </a></li>
-							<li class="breadcrumb-item active">edit admin</li>
+									Admins </a></li>
+							<li class="breadcrumb-item active">Edit Admin</li>
 						</ol>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title" id="basic-layout-form">chanage admin password</h4>
+								<h4 class="card-title" id="basic-layout-form">Chanage Admin Password</h4>
 								<a class="heading-elements-toggle"><i
 									class="la la-ellipsis-v font-medium-3"></i></a>
 								<div class="heading-elements">
@@ -50,7 +50,7 @@
 										<div class="form-body">
 
 											<h4 class="form-section">
-												<i class="ft-home"></i> admin data chanage password -> {{$user -> name }}
+												<i class="ft-home"></i> Admin Data Chanage Password -> {{$user -> name }}
 											</h4>
 											<div class="row">
                                                     <div class="col-md-6">
@@ -84,10 +84,10 @@
 										<div class="form-actions">
 											<button type="button" class="btn btn-warning mr-1"
 												onclick="history.back();">
-												<i class="ft-x"></i> back
+												<i class="ft-x"></i> Back
 											</button>
 											<button type="submit" class="btn btn-primary">
-												<i class="la la-check-square-o"></i> chanage
+												<i class="la la-check-square-o"></i> Chanage
 											</button>
 										</div>
 									</form>

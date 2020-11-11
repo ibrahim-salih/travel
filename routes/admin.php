@@ -75,5 +75,28 @@ Route::group([
         Route::get('changeStatus/{id}', 'MainCategoryController@changeStatus')->name('admin.maincategories.status');
     });
     // ######################## End Main Categoris Routes ########################
+    // ############## Begin Main Categories Routes ###############
+    Route::group([
+        'prefix' => 'settings'
+    ], function () {
+        //Route::get('/', 'MainCategoryController@index')->name('admin.maincategories');
+        Route::get('/setting', 'SettingsController@setting')->name('admin.settings');
+        Route::post('/update/{id}', 'SettingsController@update')->name('admin.setting.update');
+        
+        Route::get('/about', 'SettingsController@about')->name('admin.about');
+        Route::post('/update_about/{id}', 'SettingsController@update_about')->name('admin.about.update');
+
+        Route::get('/contactus', 'SettingsController@contactus')->name('admin.contactus');
+        Route::post('/update_contact/{id}', 'SettingsController@update_contact')->name('admin.contact.update');
+        
+        
+    });
     
+    Route::group([
+        'prefix' => 'profile'
+    ], function () {
+        Route::get('edit', 'ProfileController@editProfile')->name('edit.profile');
+        Route::put('update', 'ProfileController@updateprofile')->name('update.profile');
+    });
+    // ######################## End Main Categoris Routes ########################
 });

@@ -86,7 +86,7 @@
                 </a>
                 <ul class="menu-content">
                     @if (auth()->user()->hasPermission('read_settings'))
-                    <li class="active"><a class="menu-item" href="{{route('admin.maincategories')}}"
+                    <li class="active"><a class="menu-item" href="{{ route('admin.about') }}"
                                           data-i18n="nav.dash.ecommerce"> About Us </a>
                     </li>
                     @else
@@ -95,7 +95,7 @@
                     </li>
                     @endif
                     @if (auth()->user()->hasPermission('read_settings'))
-                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">
+                    <li><a class="menu-item" href="{{ route('admin.contactus') }}" data-i18n="nav.dash.crypto">
                              {{__('admin/sidebar.contact')}} </a>
                     </li>
                     @else
@@ -104,7 +104,7 @@
                     </li>
                     @endif
                     @if (auth()->user()->hasPermission('read_settings'))
-                    <li><a class="menu-item" href="{{route('admin.maincategories.create')}}" data-i18n="nav.dash.crypto">
+                    <li><a class="menu-item" href="{{ route('admin.settings') }}" data-i18n="nav.dash.crypto">
                              Site Settings  </a>
                     </li>
                     @else

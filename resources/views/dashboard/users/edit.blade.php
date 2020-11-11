@@ -7,10 +7,10 @@
 				<div class="row breadcrumbs-top">
 					<div class="breadcrumb-wrapper col-12">
 						<ol class="breadcrumb">
-							<li class="breadcrumb-item"><a href="">main </a></li>
+							<li class="breadcrumb-item"><a href="">Main </a></li>
 							<li class="breadcrumb-item"><a href="{{route('admin.users')}}">
-									admins </a></li>
-							<li class="breadcrumb-item active">edit admin</li>
+									Admins </a></li>
+							<li class="breadcrumb-item active">Edit Admin</li>
 						</ol>
 					</div>
 				</div>
@@ -23,7 +23,7 @@
 					<div class="col-md-12">
 						<div class="card">
 							<div class="card-header">
-								<h4 class="card-title" id="basic-layout-form">edit admin</h4>
+								<h4 class="card-title" id="basic-layout-form">Edit Admin</h4>
 								<a class="heading-elements-toggle"><i
 									class="la la-ellipsis-v font-medium-3"></i></a>
 								<div class="heading-elements">

@@ -41,7 +41,7 @@
                   			<img  style="height: 35px;" src="{{asset('assets/images/users')}}/default.jpg" alt="avatar"><i></i></span>
                   			@endif
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href=""><i
+                        <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="{{route('edit.profile')}}"><i
                                     class="ft-user"></i> {{__('admin/header.profile user')}} </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('admin.logout')}}"><i class="ft-power"></i> {{__('admin/header.logout')}} </a>

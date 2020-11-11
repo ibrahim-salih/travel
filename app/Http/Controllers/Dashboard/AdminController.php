@@ -92,13 +92,13 @@ class AdminController extends Controller
             $user->syncPermissions($request->permissions);
             DB::commit();
             return redirect()->route('admin.users')->with([
-                'success' => 'تم ألاضافة بنجاح'
+                'success' => 'Added successfully'
             ]);
         } catch (\Exception $ex) {
             // DB::rollback();
             return $ex;
             return redirect()->route('admin.users')->with([
-                'error' => 'حدث خطا ما برجاء المحاوله لاحقا'
+                'error' => 'Something went wrong, please try again later'
             ]);
         }
     }
@@ -108,7 +108,7 @@ class AdminController extends Controller
         $user = Admin::select()->find($id);
         if (! $user) {
             return redirect()->route('admin.users')->with([
-                'error' => 'لا توجد بيانات'
+                'error' => 'There is no data'
             ]);
         }
         return view('dashboard.users.edit', compact('user'));
@@ -122,7 +122,7 @@ class AdminController extends Controller
             $user = Admin::find($id);
             if (! $user)
                 return redirect()->route('admin.users')->with([
-                    'error' => 'هذا المستخدم غير موجود'
+                    'error' => 'This user does not exist'
                 ]);
                 
 //                 if ($request->filled('password')) {
@@ -150,13 +150,13 @@ class AdminController extends Controller
 
             DB::commit();
             return redirect()->route('admin.users')->with([
-                'success' => 'تم ألتحديث بنجاح'
+                'success' => 'The update was successful'
             ]);
         } catch (\Exception $ex) {
              return $ex;
             // DB::rollback();
             return redirect()->route('admin.users')->with([
-                'error' => 'حدث خطا ما برجاء المحاوله لاحقا'
+                'error' => 'Something went wrong, please try again later'
             ]);
         }
     }
@@ -165,7 +165,7 @@ class AdminController extends Controller
         $user = Admin::select()->find($id);
         if (! $user) {
             return redirect()->route('admin.users')->with([
-                'error' => 'لا توجد بيانات'
+                'error' => 'There is no data'
             ]);
         }
         return view('dashboard.users.editpassword', compact('user'));
@@ -190,12 +190,12 @@ class AdminController extends Controller
             $admin->update($request->all());
             
             return redirect()->route('admin.users')->with([
-                'success' => 'تم ألتحديث بنجاح'
+                'success' => 'The update was successful'
             ]);
             
         } catch (\Exception $ex) {
             
-            return redirect()->back()->with(['error' => 'هناك خطا ما يرجي المحاولة فيما بعد']);
+            return redirect()->back()->with(['error' => 'Something went wrong, please try again later']);
             
         }
     }
@@ -206,7 +206,7 @@ class AdminController extends Controller
             $admin = Admin::find($id);
             if (! $admin)
                 return redirect()->route('admin.users')->with([
-                    'error' => 'هذا القسم غير موجود '
+                    'error' => 'This user does not exist'
                 ]);
 
             // $vendors = $maincategory->vendors();
@@ -221,12 +221,12 @@ class AdminController extends Controller
             // $admin->categories()->delete();
             $admin->delete();
             return redirect()->route('admin.users')->with([
-                'success' => 'تم حذف المستخدم بنجاح'
+                'success' => 'User has been successfully deleted'
             ]);
         } catch (\Exception $ex) {
             return $ex;
             return redirect()->route('admin.users')->with([
-                'error' => 'حدث خطا ما برجاء المحاوله لاحقا'
+                'error' => 'Something went wrong, please try again later'
             ]);
         }
     }
@@ -237,7 +237,7 @@ class AdminController extends Controller
             $admin = Admin::find($id);
             if (! $admin)
                 return redirect()->route('admin.users')->with([
-                    'error' => 'هذا القسم غير موجود '
+                    'error' => 'This user does not exist'
                 ]);
 
             if ($admin->image != 'default.png' || '') {
@@ -251,12 +251,12 @@ class AdminController extends Controller
                 'image' => $image
             ]);
             return redirect()->route('admin.users')->with([
-                'success' => 'تم حذف صورة المستخدم بنجاح'
+                'success' => 'User photo has been deleted successfully'
             ]);
         } catch (\Exception $ex) {
             //return $ex;
             return redirect()->route('admin.users')->with([
-                'error' => 'حدث خطا ما برجاء المحاوله لاحقا'
+                'error' => 'Something went wrong, please try again later'
             ]);
         }
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MainCategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Intervention\Image\Facades\Image;
 use App\Models\MainCategory;
 use Illuminate\Support\Facades\DB;
 
@@ -39,7 +40,13 @@ class MainCategoryController extends Controller
         $filePath = "";
         if ($request->has('photo')) {
             
-            $filePath = uploadImage('maincategories', $request->photo);
+            //$filePath = uploadImage('categories', $request->photo);
+            Image::make($request->photo)->resize(300, null, function ($constraint) {
+                $constraint->aspectRatio();
+            })
+            ->save(public_path('assets/images/categories/' . $request->photo->hashName()));
+            
+            $filePath = $request->photo->hashName();
         }
          DB::beginTransaction();
          $default_category_id = MainCategory::insertGetId([
@@ -74,6 +81,7 @@ class MainCategoryController extends Controller
             
         } catch (\Exception $ex) {
             DB::rollback();
+            //return $ex;
             return redirect()->route('admin.maincategories')->with(['error' => 'حدث خطا ما برجاء المحاوله لاحقا']);
         }
         
@@ -90,7 +98,7 @@ class MainCategoryController extends Controller
          if (!$mainCategory)
              return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
             
-             return view('admin.maincategories.edit', compact('mainCategory'));
+             return view('dashboard.maincategories.edit', compact('mainCategory'));
     }
     
     public function update($mainCat_id, MainCategoryRequest $request)
@@ -122,11 +130,19 @@ class MainCategoryController extends Controller
                         // save image
                         
                         if ($request->has('photo')) {
-                            $filePath = uploadImage('maincategories', $request->photo);
+//                             $filePath = uploadImage('maincategories', $request->photo);
+//                             MainCategory::where('id', $mainCat_id)
+//                             ->update([
+//                                 'photo' => $filePath,
+//                             ]);
+                            Image::make($request->photo)->resize(300, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            })
+                            ->save(public_path('assets/images/categories/' . $request->photo->hashName()));
+                            
+                            $filePath = $request->photo->hashName();
                             MainCategory::where('id', $mainCat_id)
-                            ->update([
-                                'photo' => $filePath,
-                            ]);
+                            ->update(['photo' => $filePath,]);
                         }
                         
                         

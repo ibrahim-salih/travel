@@ -8,11 +8,11 @@
                     <div class="row breadcrumbs-top">
                         <div class="breadcrumb-wrapper col-12">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="">main </a>
+                                <li class="breadcrumb-item"><a href="">Main </a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.users')}}">  admins </a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.users')}}">  Admins </a>
                                 </li>
-                                <li class="breadcrumb-item active">  add new admin
+                                <li class="breadcrumb-item active">  Add New Admin
                                 </li>
                             </ol>
                         </div>
@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title" id="basic-layout-form"> add new </h4>
+                                    <h4 class="card-title" id="basic-layout-form"> Add New </h4>
                                     <a class="heading-elements-toggle"><i
                                             class="la la-ellipsis-v font-medium-3"></i></a>
                                     <div class="heading-elements">
@@ -137,7 +137,7 @@
                                                                     <a class="nav-link @if($index ==  0 ) active @endif  " id="homeLable-tab"  data-toggle="tab"
                                                                        href="#homeLable{{$index}}" aria-controls="homeLable"
                                                                         aria-expanded="{{$index ==  0 ? 'true' : 'false'}}">
-                                                                        @lang('site.' . $model)</a>
+                                                                        @lang($model)</a>
                                                                 </li>
                                                             
                                                                 @endforeach
@@ -150,7 +150,7 @@
                                                  aria-labelledby="homeLable-tab"
                                                  aria-expanded="{{$index ==  0 ? 'true' : 'false'}}">
                                                   @foreach ($maps as $map)
-                                                                            <label><input class="switchery" data-color="success" type="checkbox" name="permissions[]" value="{{ $map . '_' . $model }}"> @lang('site.' . $map)</label>
+                                                                            <label><input class="switchery" data-color="success" type="checkbox" name="permissions[]" value="{{ $map . '_' . $model }}"> @lang( $map)</label>
                                                                         @endforeach
                                                  </div>
                                                                     
